@@ -1,0 +1,36 @@
+zcmd.txt
+requiremens.txtt
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# AI database
+embeddings_store/
+chroma_db/
+
+# Temporary uploaded files
+buf_*
+
+# Next.js
+node_modules/
+.next/
+out/
+
+# Build files
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
