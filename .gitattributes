@@ -1,3 +1,7 @@
+# Pure frontend folder ko GitHub stats se gayab karne ke liye
+scraper-frontend/**/* linguist-vendored
+
+# Extra safety ke liye agar koi files bahar reh gayi hon
 *.js linguist-vendored
 *.jsx linguist-vendored
 *.ts linguist-vendored
