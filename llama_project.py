@@ -195,7 +195,7 @@ class GeminiTenacityEmbedding(BaseEmbedding):
                 embeddings_list.append([0.0] * EMBEDDING_DIMENSION)
                 continue
             embeddings_list.append(_embed_single_chunk(text))
-            time.sleep(0.3)
+            time.sleep(2.0)
         return embeddings_list
 
 emb_setup = GeminiTenacityEmbedding(model="gemini-embedding-001", api_key=gemini_api_key)
