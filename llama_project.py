@@ -18,6 +18,7 @@ from celery.result import AsyncResult
 
 # LlamaIndex Imports
 from llama_index.core.memory import ChatMemoryBuffer
+from llama_index.core import Document
 from llama_index.core import StorageContext, VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.core.schema import TextNode
 from llama_index.core.node_parser import SentenceSplitter
