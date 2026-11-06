@@ -338,6 +338,19 @@ async def upload_document(my_session_id: Optional[str] = None, file: UploadFile 
                 row_text = " | ".join([f"{col}: {val}" for col, val in row.items() if pd.notna(val)])
                 all_nodes.append(TextNode(text=row_text, metadata={"source_file": file.filename, "row_number": index}))
 
+
+        if not all_nodes:
+            raise HTTPException(
+                status_code=400,
+                detail="No readable text found in document."
+            )
+        
+        if len(all_nodes) > MAX_CHUNKS_PER_FILE:
+            raise HTTPException(
+                status_code=413,
+                detail=f"Too many chunks! Maximum allowed is {MAX_CHUNKS_PER_FILE}."
+            )
+
         per_dir = chromadb.PersistentClient(path=storing_path)
         db = per_dir.get_or_create_collection(f"collection_{my_session_id}")
         vector_store = ChromaVectorStore(chroma_collection=db)
@@ -359,6 +372,9 @@ async def upload_document(my_session_id: Optional[str] = None, file: UploadFile 
             "processing_time_seconds": total_time,
             "session_id": my_session_id
         }
+        
+    except HTTPException:
+        raise
 
     except Exception as e:
         logger.error(f"❌ Document processing failed: {str(e)}")
