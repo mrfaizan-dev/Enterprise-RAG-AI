@@ -38,6 +38,7 @@ from contextlib import asynccontextmanager
 
 load_dotenv()
 
+MAX_FILE_SIZE = 10 * 1024 * 1024
 Settings.chunk_size = 800
 Settings.chunk_overlap = 80
 Settings.node_parser = SentenceSplitter(chunk_size=800, chunk_overlap=80)
@@ -189,7 +190,8 @@ class GeminiTenacityEmbedding(BaseEmbedding):
                 return res.embeddings[0].values #type: ignore
 
             if not text.strip():
-                embeddings_list.append([0.0] * 768)
+                EMBEDDING_DIMENSION = 3072
+                embeddings_list.append([0.0] * EMBEDDING_DIMENSION)
                 continue
             embeddings_list.append(_embed_single_chunk(text))
             time.sleep(0.3)
@@ -310,7 +312,12 @@ async def upload_document(my_session_id: Optional[str] = None, file: UploadFile 
     temp_filename = f"buf_{uuid.uuid4().hex[:8]}_{file.filename}"
     
     try:
-        content = await file.read()
+        content = await file.read(MAX_FILE_SIZE + 1)
+        if len(content) > MAX_FILE_SIZE:
+            raise HTTPException(
+                status_code=413,
+                detail="Maximum file size allowed is 10 MB."
+            )
         with open(temp_filename, "wb") as f:
             f.write(content)
 
