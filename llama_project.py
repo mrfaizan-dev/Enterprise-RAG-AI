@@ -39,6 +39,7 @@ from contextlib import asynccontextmanager
 load_dotenv()
 
 MAX_FILE_SIZE = 10 * 1024 * 1024
+MAX_CHUNKS_PER_FILE = 60
 Settings.chunk_size = 800
 Settings.chunk_overlap = 80
 Settings.node_parser = SentenceSplitter(chunk_size=800, chunk_overlap=80)
