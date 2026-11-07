@@ -106,14 +106,14 @@ celery_app.conf.update(
 # ==========================================
 async def auto_delete_old_folders():
     while True:
-        await asyncio.sleep(3600)
+        await asyncio.sleep(600)
         store_path = "./embeddings_store"
         if os.path.exists(store_path):
             current_time = time.time()
             for folder in os.listdir(store_path):
                 folder_path = os.path.join(store_path, folder)
                 if os.path.isdir(folder_path):
-                    if (current_time - os.path.getmtime(folder_path)) > 86400: # 24 hours
+                    if (current_time - os.path.getmtime(folder_path)) > 600: # 24 hours
                         try:
                             shutil.rmtree(folder_path)
                             logger.info(f"🗑️ Successfully cleaned up expired session folder: {folder}")
