@@ -105,20 +105,55 @@ celery_app.conf.update(
 # 3. FastAPI Lifespan & Background Cleanup
 # ==========================================
 async def auto_delete_old_folders():
+    store_path = "./embeddings_store"
+
     while True:
-        await asyncio.sleep(600)
-        store_path = "./embeddings_store"
-        if os.path.exists(store_path):
-            current_time = time.time()
-            for folder in os.listdir(store_path):
-                folder_path = os.path.join(store_path, folder)
-                if os.path.isdir(folder_path):
-                    if (current_time - os.path.getmtime(folder_path)) > 600: # 24 hours
+        try:
+            if os.path.isdir(store_path):
+                current_time = time.time()
+
+                with os.scandir(store_path) as folders:
+                    for folder in folders:
+
+                        if not folder.is_dir(follow_symlinks=False):
+                            continue
+
+                        folder_path = folder.path
+                        marker = os.path.join(
+                            folder_path, ".created_at"
+                        )
+
                         try:
-                            shutil.rmtree(folder_path)
-                            logger.info(f"🗑️ Successfully cleaned up expired session folder: {folder}")
+                            # Read original creation timestamp
+                            if os.path.exists(marker):
+                                with open(marker, "r") as f:
+                                    created_at = float(f.read().strip())
+                            else:
+                                # Handle folders created before this update
+                                created_at = os.path.getmtime(folder_path)
+
+                                with open(marker, "w") as f:
+                                    f.write(str(created_at))
+
+                            # Delete after 600 seconds
+                            if current_time - created_at >= 600:
+                                shutil.rmtree(folder_path)
+
+                                logger.info(
+                                    f"🗑️ Automatically deleted expired folder: "
+                                    f"{folder.name}"
+                                )
+
                         except Exception as e:
-                            logger.warning(f"⚠️ Failed to delete folder {folder}: {str(e)}")
+                            logger.warning(
+                                f"Cleanup failed for {folder.name}: {e}"
+                            )
+
+        except Exception as e:
+            logger.error(f"Cleanup system error: {e}")
+
+        # Check every 10 seconds
+        await asyncio.sleep(10)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -141,8 +176,15 @@ app.add_middleware(
 def get_user_store_path(session_id: str):
     path = f"./embeddings_store/{session_id}"
     os.makedirs(path, exist_ok=True)
-    return path
 
+    # Record the original folder creation time
+    created_marker = os.path.join(path, ".created_at")
+
+    if not os.path.exists(created_marker):
+        with open(created_marker, "w") as f:
+            f.write(str(time.time()))
+
+    return path
 # ==========================================
 # 4. Gemini Embedding Class with Tenacity
 # ==========================================
