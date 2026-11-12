@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero-banner.gif" alt="Enterprise RAG AI — Hybrid Retrieval and Document Intelligence" width="100%">
+<img src="./hero-banner.gif" alt="Enterprise RAG AI — Hybrid Retrieval and Document Intelligence" width="100%">
 
 # Enterprise RAG AI
 
@@ -170,18 +170,18 @@ Celery runs independently of FastAPI and uses Redis as its broker and result bac
 ## Architecture
 
 <div align="center">
-<img src="assets/architecture.gif" alt="Layered architecture of Enterprise RAG AI with an optional Redis and Celery queue branch" width="100%">
+<img src="./architecture.gif" alt="Layered architecture of Enterprise RAG AI with an optional Redis and Celery queue branch" width="100%">
 </div>
 
-<sub>Static, high-resolution version: [`assets/architecture.svg`](assets/architecture.svg). The dashed branch is optional — normal Fast Sync requests never touch Redis or Celery.</sub>
+<sub>Static, high-resolution version: [`./architecture.svg`](./architecture.svg). The dashed branch is optional — normal Fast Sync requests never touch Redis or Celery.</sub>
 
 ## How the RAG Pipeline Works
 
 <div align="center">
-<img src="assets/rag-pipeline.gif" alt="Animated RAG pipeline from document upload to a cited answer" width="100%">
+<img src="./rag-pipeline.gif" alt="Animated RAG pipeline from document upload to a cited answer" width="100%">
 </div>
 
-<sub>Static version: [`assets/workflow.svg`](assets/workflow.svg)</sub>
+<sub>Static version: [`./workflow.svg`](./workflow.svg)</sub>
 
 - **Semantic search vs. keyword search** — semantic search finds passages that are conceptually related to a question, even when the wording differs. BM25 finds exact words, identifiers and terminology. They complement each other.
 - **Fusion and reranking** — each retriever returns its top 15 candidates. `QueryFusionRetriever` merges them with Reciprocal Rank Fusion, and Cohere reranking keeps the **top 3** nodes.
@@ -223,7 +223,7 @@ Enterprise-RAG-AI/
 ├── .dockerignore
 ├── Dockerfile              # backend image
 ├── docker-compose.yml      # redis, backend, celery_worker, frontend
-├── assets/                 # README visuals (SVG + animated GIF)
+├── ./                 # README visuals (SVG + animated GIF)
 │   ├── hero-banner.svg / .gif
 │   ├── architecture.svg / .gif
 │   ├── workflow.svg
@@ -291,7 +291,7 @@ Sessions are removed 10 minutes after they were created, so upload the document 
 
 <div align="center">
 
-<img src="assets/faizan-signature.gif" alt="MR FAIZAN — AI Developer" width="720">
+<img src="./faizan-signature.gif" alt="MR FAIZAN — AI Developer" width="720">
 
 **Designed & Built by Mr Faizan**<br>
 AI Developer
