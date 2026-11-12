@@ -6,7 +6,7 @@
 
 **Hybrid Retrieval & Document Intelligence Platform**
 
-Enterprise RAG AI is an AI-powered document intelligence platform that turns uploaded PDF, TXT and CSV files into searchable knowledge. Built with Python, FastAPI and LlamaIndex, it combines semantic vector retrieval, BM25 keyword search, Reciprocal Rank Fusion and Cohere reranking to generate document-grounded answers with source citations.
+Enterprise RAG AI i an AI-powered document intelligence platform that turns uploaded PDF, TXT and CSV files into searchable knowledge. Built with Python, FastAPI and LlamaIndex, it combines semantic vector retrieval, BM25 keyword search, Reciprocal Rank Fusion and Cohere reranking to generate document-grounded answers with source citations.
 
 <img src="https://img.shields.io/badge/Python_3.12-101B28?style=flat-square&logo=python&logoColor=22D3EE" alt="Python 3.12"> <img src="https://img.shields.io/badge/FastAPI-101B28?style=flat-square&logo=fastapi&logoColor=22D3EE" alt="FastAPI"> <img src="https://img.shields.io/badge/LlamaIndex-101B28?style=flat-square" alt="LlamaIndex"> <img src="https://img.shields.io/badge/Groq-101B28?style=flat-square" alt="Groq">
 <img src="https://img.shields.io/badge/Gemini-101B28?style=flat-square&logo=googlegemini&logoColor=22D3EE" alt="Google Gemini"> <img src="https://img.shields.io/badge/ChromaDB-101B28?style=flat-square" alt="ChromaDB"> <img src="https://img.shields.io/badge/Cohere-101B28?style=flat-square&logo=cohere&logoColor=22D3EE" alt="Cohere"> <img src="https://img.shields.io/badge/Celery-101B28?style=flat-square&logo=celery&logoColor=22D3EE" alt="Celery">
