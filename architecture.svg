@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900" role="img" aria-label="Enterprise RAG AI architecture" xmlns:c2pa="http://c2pa.org/manifest"><title>Enterprise RAG AI architecture</title><desc>Layered architecture: user, API, ingestion, storage, hybrid retrieval, reranking and generation, response, plus an optional Redis and Celery queue branch.</desc><defs><linearGradient id="bgg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05080D"/><stop offset="1" stop-color="#0A111B"/></linearGradient><radialGradient id="gl0" cx="930" cy="150" r="440" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22D3EE" stop-opacity="0.060"/><stop offset="0.5" stop-color="#22D3EE" stop-opacity="0.015"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient><radialGradient id="gl1" cx="90" cy="840" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#14B8A6" stop-opacity="0.050"/><stop offset="0.5" stop-color="#14B8A6" stop-opacity="0.013"/><stop offset="1" stop-color="#14B8A6" stop-opacity="0"/></radialGradient><pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="16" cy="16" r="1" fill="#22D3EE" fill-opacity="0.035"/></pattern></defs><rect width="1100" height="900" fill="url(#bgg)"/>
+<rect width="1100" height="900" fill="url(#gl0)"/>
+<rect width="1100" height="900" fill="url(#gl1)"/>
+<rect width="1100" height="900" fill="url(#dots)"/>
+<text x="40" y="36" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" letter-spacing="3" fill="#22D3EE">SYSTEM ARCHITECTURE</text>
+<text x="40" y="64" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#EAF2F7">Enterprise RAG AI — layered view</text>
+<polyline points="22,135 22,819" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<polyline points="22,135 40,135" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="135" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,249 40,249" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="249" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,363 40,363" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="363" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,477 40,477" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="477" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,591 40,591" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="591" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,705 40,705" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="705" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<polyline points="22,819 40,819" fill="none" stroke="#243548" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="22" cy="819" r="4.5" fill="#101B28" stroke="#22D3EE" stroke-width="1.5"/>
+<rect x="40" y="84" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="108" r="3" fill="#22D3EE"/>
+<text x="72" y="112" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">USER LAYER</text>
+<rect x="55" y="124" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="146" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">User</text>
+<text x="170" y="163" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">Uploads documents · asks questions</text>
+<polygon points="299,149 292,144 292,154" fill="#22D3EE"/>
+<rect x="305" y="124" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="146" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Browser</text>
+<text x="420" y="163" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">localhost:3000</text>
+<polygon points="549,149 542,144 542,154" fill="#22D3EE"/>
+<rect x="555" y="124" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="146" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Next.js frontend</text>
+<text x="670" y="163" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">RAGI Enterprise AI interface</text>
+<polygon points="420,197 414,189 426,189" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="198" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="222" r="3" fill="#14B8A6"/>
+<text x="72" y="226" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">API LAYER</text>
+<rect x="55" y="238" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="260" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">FastAPI</text>
+<text x="170" y="277" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">llama_project.py</text>
+<rect x="305" y="238" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="260" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Uvicorn</text>
+<text x="420" y="277" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">port 8800</text>
+<rect x="555" y="238" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="260" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">REST endpoints</text>
+<text x="670" y="277" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">upload · ai_res · task_status</text>
+<polygon points="420,311 414,303 426,303" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="312" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="336" r="3" fill="#22D3EE"/>
+<text x="72" y="340" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">DOCUMENT INGESTION</text>
+<rect x="60" y="352" width="165" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="142.5" y="374" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Upload</text>
+<text x="142.5" y="391" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">PDF · TXT · CSV · max 10 MB</text>
+<polygon points="239,377 232,372 232,382" fill="#22D3EE"/>
+<rect x="245" y="352" width="165" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="327.5" y="374" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Parse</text>
+<text x="327.5" y="391" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">PyMuPDF · Pandas</text>
+<polygon points="424,377 417,372 417,382" fill="#22D3EE"/>
+<rect x="430" y="352" width="165" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="512.5" y="374" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Chunk</text>
+<text x="512.5" y="391" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">size 800 · overlap 80</text>
+<polygon points="609,377 602,372 602,382" fill="#22D3EE"/>
+<rect x="615" y="352" width="165" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="697.5" y="374" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Gemini Embeddings</text>
+<text x="697.5" y="391" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">gemini-embedding-001</text>
+<polygon points="420,425 414,417 426,417" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="426" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="450" r="3" fill="#14B8A6"/>
+<text x="72" y="454" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">STORAGE  ·  embeddings_store/{session_id}/</text>
+<rect x="55" y="466" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="488" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">ChromaDB</text>
+<text x="170" y="505" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">persistent vector store</text>
+<rect x="305" y="466" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="488" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Node cache</text>
+<text x="420" y="505" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">all_nodes.pkl</text>
+<rect x="555" y="466" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="488" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Chat memory</text>
+<text x="670" y="505" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">chat_memory.pkl</text>
+<polygon points="420,539 414,531 426,531" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="540" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="564" r="3" fill="#22D3EE"/>
+<text x="72" y="568" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">HYBRID RETRIEVAL</text>
+<rect x="55" y="580" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="602" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Vector retrieval</text>
+<text x="170" y="619" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">ChromaDB · top 15</text>
+<rect x="305" y="580" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="602" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">BM25 retrieval</text>
+<text x="420" y="619" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">BM25Retriever · top 15</text>
+<polygon points="549,605 542,600 542,610" fill="#22D3EE"/>
+<rect x="555" y="580" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="602" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Fusion</text>
+<text x="670" y="619" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">QueryFusionRetriever · RRF</text>
+<polygon points="420,653 414,645 426,645" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="654" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="678" r="3" fill="#14B8A6"/>
+<text x="72" y="682" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">RERANKING &amp; GENERATION</text>
+<rect x="55" y="694" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="716" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Cohere Rerank</text>
+<text x="170" y="733" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">keeps the top 3 nodes</text>
+<polygon points="299,719 292,714 292,724" fill="#22D3EE"/>
+<rect x="305" y="694" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="716" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">ContextChatEngine</text>
+<text x="420" y="733" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">+ ChatMemoryBuffer (1500 tokens)</text>
+<polygon points="549,719 542,714 542,724" fill="#22D3EE"/>
+<rect x="555" y="694" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="716" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Groq LLM</text>
+<text x="670" y="733" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">openai/gpt-oss-20b</text>
+<polygon points="420,767 414,759 426,759" fill="#22D3EE" fill-opacity="0.900"/>
+<rect x="40" y="768" width="760" height="102" rx="14" fill="#0A111B" stroke="#243548" stroke-width="1.2"/>
+<circle cx="60" cy="792" r="3" fill="#22D3EE"/>
+<text x="72" y="796" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2.2" fill="#94A3B8">RESPONSE</text>
+<rect x="55" y="808" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="170" y="830" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Grounded answer</text>
+<text x="170" y="847" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">generated from retrieved context</text>
+<rect x="305" y="808" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="420" y="830" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Source citations</text>
+<text x="420" y="847" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">file · page · score · snippet</text>
+<polygon points="549,833 542,828 542,838" fill="#22D3EE"/>
+<rect x="555" y="808" width="230" height="50" rx="10" fill="#101B28" stroke="#243548" stroke-width="1.2"/>
+<text x="670" y="830" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#EAF2F7">Next.js UI</text>
+<text x="670" y="847" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">renders answer and sources</text>
+<rect x="830" y="198" width="230" height="520" rx="14" fill="#0A111B" fill-opacity="0.550" stroke="#14B8A6" stroke-opacity="0.750" stroke-width="1.4" stroke-dasharray="6 5"/>
+<circle cx="850" cy="222" r="3" fill="#14B8A6"/>
+<text x="862" y="226" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" letter-spacing="2" fill="#14B8A6">OPTIONAL · QUEUE MODE</text>
+<rect x="850" y="248" width="190" height="62" rx="10" fill="#101B28" stroke="#14B8A6" stroke-opacity="0.550" stroke-width="1.2"/>
+<text x="945" y="275" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#EAF2F7">POST /ai_res_background</text>
+<text x="945" y="293" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">returns a Task_ID</text>
+<rect x="850" y="338" width="190" height="62" rx="10" fill="#101B28" stroke="#14B8A6" stroke-opacity="0.550" stroke-width="1.2"/>
+<text x="945" y="365" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#EAF2F7">Redis</text>
+<text x="945" y="383" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">broker + result backend</text>
+<rect x="850" y="428" width="190" height="62" rx="10" fill="#101B28" stroke="#14B8A6" stroke-opacity="0.550" stroke-width="1.2"/>
+<text x="945" y="455" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#EAF2F7">Celery worker</text>
+<text x="945" y="473" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">task: tasks.ragi_ai</text>
+<rect x="850" y="518" width="190" height="62" rx="10" fill="#101B28" stroke="#14B8A6" stroke-opacity="0.550" stroke-width="1.2"/>
+<text x="945" y="545" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#EAF2F7">GET /task_status/{id}</text>
+<text x="945" y="563" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">frontend polls the result</text>
+<polyline points="800,279 850,279" fill="none" stroke="#14B8A6" stroke-opacity="0.850" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<polygon points="850.00,279.00 843.00,275.15 843.00,282.85" fill="#14B8A6" fill-opacity="0.850"/>
+<polyline points="945,310 945,338" fill="none" stroke="#14B8A6" stroke-opacity="0.850" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<polygon points="945.00,338.00 948.85,331.00 941.15,331.00" fill="#14B8A6" fill-opacity="0.850"/>
+<polyline points="945,400 945,428" fill="none" stroke="#14B8A6" stroke-opacity="0.850" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<polygon points="945.00,428.00 948.85,421.00 941.15,421.00" fill="#14B8A6" fill-opacity="0.850"/>
+<polyline points="850,459 815,459 815,591 800,591" fill="none" stroke="#14B8A6" stroke-opacity="0.850" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<polygon points="800.00,591.00 807.00,594.85 807.00,587.15" fill="#14B8A6" fill-opacity="0.850"/>
+<polyline points="945,490 945,518" fill="none" stroke="#14B8A6" stroke-opacity="0.850" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<polygon points="945.00,518.00 948.85,511.00 941.15,511.00" fill="#14B8A6" fill-opacity="0.850"/>
+<text x="945" y="636" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">Not needed for Fast Sync.</text>
+<text x="945" y="653" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">Celery runs the same RAG pipeline</text>
+<text x="945" y="670" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#94A3B8">in a separate worker process.</text>
+<text x="830" y="752" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="600" text-anchor="start" letter-spacing="2" fill="#94A3B8">LEGEND</text>
+<polyline points="830,774 864,774" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linejoin="round"/>
+<text x="876" y="778" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#EAF2F7">Fast Sync request (default)</text>
+<polyline points="830,798 864,798" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<text x="876" y="802" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#EAF2F7">Queue mode (optional)</text><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo1YWZhZWMxMi1jOGRlLTRjYzYtYTBiYi04NTk4ZjUxZmNmMzIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaP2QUCz7+BGo4aQHPTTf1gcAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo3NmU1ZjI2OC0xMmEwLTQ1MjAtYTAyMy01YjkyOTQ4ZDNmMGFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo0sHL/ZxhsWQL2nr4zn6bMwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg6dovqLTa57xuDHJZyjzuCRVclv02vnzgi54Gbs9Lq3WkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaFCH6OuSqdtQhHoMFuvm1vsAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIHzQqU7d6YoxsIpCZ7CNzqpcU7bUHzo7KuLbr/l5SQW6ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GVYeZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjVhZmFlYzEyLWM4ZGUtNGNjNi1hMGJiLTg1OThmNTFmY2YzMi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjM1NWMxNzExLTM3ZTEtNDI3NS05YWY0LTcwZDkyYTJlZmFhM3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDp2i+otNrnvG4MclnKPO4JFVyW/Ta+fOCLngZuz0urdaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggI3IWD23zFVkYR7rUQPrUh419n9AsjddfT+k0U8e3oSaiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg2x1WZGWILdpOVejl2mG+fiK/dBo/Fa0VxbhGos3C3VF0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQADr4L39CaYX62LdqtPpF2NT6wP8o7F7kRFmiJALqIeL0zDTUcXsA7bhwErvTbEoedyPFR2N/aTB6MqgXuXvUDw=</c2pa:manifest></metadata></svg>
