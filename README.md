@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero-banner.svg" alt="Enterprise RAG AI — Hybrid Retrieval and Document Intelligence Platform" width="100%">
+  <img src="./hero-banner.svg" alt="Enterprise RAG AI — Hybrid Retrieval and Document Intelligence Platform" width="100%">
 </p>
 
 <h1 align="center">Enterprise RAG AI</h1>
@@ -56,7 +56,7 @@ This project narrows the model to your document. It retrieves relevant passages,
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.svg" alt="Enterprise RAG AI architecture diagram" width="760">
+  <img src="./architecture.svg" alt="Enterprise RAG AI architecture diagram" width="760">
 </p>
 
 The queue branch at the bottom is optional. Normal requests go straight through FastAPI.
@@ -76,11 +76,11 @@ The queue branch at the bottom is optional. Normal requests go straight through 
 **Why both search types?** Semantic search understands meaning, even when the wording differs. BM25 is strong at exact terms such as names, codes and keywords. Fusing and reranking them gives the model better context than either method alone.
 
 <p align="center">
-  <img src="assets/workflow.svg" alt="Enterprise RAG AI workflow diagram" width="760">
+  <img src="./workflow.svg" alt="Enterprise RAG AI workflow diagram" width="760">
 </p>
 
 <p align="center">
-  <img src="assets/rag-pipeline.gif" alt="Animated overview of the document-to-answer pipeline" width="760"><br>
+  <img src="./rag-pipeline.gif" alt="Animated overview of the document-to-answer pipeline" width="760"><br>
   <sub>Illustrative animation of the pipeline. Citation values shown are sample text, not a real screenshot.</sub>
 </p>
 
@@ -107,7 +107,7 @@ Enterprise-RAG-AI/
 ├── .dockerignore
 ├── Dockerfile
 ├── docker-compose.yml
-├── assets/
+├── ./
 │   ├── hero-banner.svg
 │   ├── architecture.svg
 │   ├── workflow.svg
