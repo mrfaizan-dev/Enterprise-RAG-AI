@@ -41,9 +41,9 @@ load_dotenv()
 
 MAX_FILE_SIZE = 10 * 1024 * 1024
 MAX_CHUNKS_PER_FILE = 60
-Settings.chunk_size = 800
-Settings.chunk_overlap = 80
-Settings.node_parser = SentenceSplitter(chunk_size=800, chunk_overlap=80)
+Settings.chunk_size = 500
+Settings.chunk_overlap = 50
+Settings.node_parser = SentenceSplitter(chunk_size=500, chunk_overlap=50)
 
 # ==========================================
 # 0. Logging Configuration
@@ -271,7 +271,7 @@ def run_rag_pipeline(question: str, session_id: str, is_async: bool = True):
     with open(nodes_cache_path, "rb") as f:
         all_nodes = pickle.load(f)
     
-    safe_top_k = min(15, len(all_nodes))
+    safe_top_k = min(5, len(all_nodes))
     bm25_retr = BM25Retriever.from_defaults(nodes=all_nodes, similarity_top_k=safe_top_k)
 
     per_dir = chromadb.PersistentClient(path=storing_path)
@@ -279,7 +279,7 @@ def run_rag_pipeline(question: str, session_id: str, is_async: bool = True):
     vector_store = ChromaVectorStore(chroma_collection=db)
     
     index = VectorStoreIndex.from_vector_store(vector_store=vector_store, embed_model=emb_setup)
-    vector_retr = index.as_retriever(similarity_top_k=15)
+    vector_retr = index.as_retriever(similarity_top_k=5)
 
     memory_saver = os.path.join(storing_path, "chat_memory.pkl")
     if os.path.exists(memory_saver):
@@ -288,19 +288,19 @@ def run_rag_pipeline(question: str, session_id: str, is_async: bool = True):
                 memory = pickle.load(memory_file)
         except Exception as e:
             logger.warning(f"⚠️ Failed to load memory file, initializing fresh memory buffer: {str(e)}")
-            memory = ChatMemoryBuffer.from_defaults(token_limit=1500)
+            memory = ChatMemoryBuffer.from_defaults(token_limit=800)
     else:
-        memory = ChatMemoryBuffer.from_defaults(token_limit=1500)
+        memory = ChatMemoryBuffer.from_defaults(token_limit=800)
     
     cohere_rerank = CohereRerank(api_key=coh_api_key, top_n=3)
 
     hybrid_retriever = QueryFusionRetriever(
         retrievers=[vector_retr, bm25_retr],
-        similarity_top_k=15,
+        similarity_top_k=5,
         num_queries=1,
         mode=FUSION_MODES.RECIPROCAL_RANK,
         use_async=True
-    )
+            )
     
     chat_engine = ContextChatEngine.from_defaults(
         retriever=hybrid_retriever,
