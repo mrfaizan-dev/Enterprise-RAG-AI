@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" role="img" aria-labelledby="ragTitle ragDesc" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title id="ragTitle">Enterprise RAG AI - Live Demo Walkthrough</title>
+  <desc id="ragDesc">Banner linking to a live video walkthrough of the Enterprise RAG AI project, featuring a YouTube-style play button.</desc>
+
+  <defs>
+    <clipPath id="frame">
+      <rect width="800" height="220" rx="14"/>
+    </clipPath>
+
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowIndigo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#6366F1" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FF0000" stop-opacity="0.32"/>
+      <stop offset="0.55" stop-color="#FF0000" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#FF0000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="glassFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <linearGradient id="glassStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="progressFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="220" rx="14" fill="#0B0F19"/>
+
+  <!-- Ambient glows (clipped to rounded frame) -->
+  <g clip-path="url(#frame)">
+    <ellipse cx="585" cy="95" rx="250" ry="170" fill="url(#glowCyan)"/>
+    <ellipse cx="720" cy="175" rx="210" ry="130" fill="url(#glowIndigo)"/>
+  </g>
+
+  <!-- ============ LEFT COLUMN ============ -->
+
+  <!-- Live badge -->
+  <rect x="40" y="30" width="216" height="24" rx="12" fill="#10B981" fill-opacity="0.12" stroke="#10B981" stroke-opacity="0.35"/>
+  <circle cx="56" cy="42" r="3.5" fill="#10B981">
+    <animate attributeName="opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="68" y="46" font-size="11" font-weight="700" fill="#10B981" textLength="176" lengthAdjust="spacing">LIVE DEMO WALKTHROUGH</text>
+
+  <!-- Heading -->
+  <text x="40" y="96" font-size="30" font-weight="800" fill="#F8FAFC" letter-spacing="-0.5">Enterprise RAG AI</text>
+
+  <!-- Subheading -->
+  <text x="40" y="124" font-size="14" fill="#94A3B8">Watch the full-stack document intelligence pipeline</text>
+  <text x="40" y="145" font-size="14" fill="#94A3B8">&amp; hybrid retrieval run live end-to-end.</text>
+
+  <!-- CTA -->
+  <text x="40" y="186" font-size="13" font-weight="600" fill="#38BDF8" textLength="218" lengthAdjust="spacing">Click to watch project execution</text>
+  <path d="M266 182 H280 M275 177 L280 182 L275 187" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ============ RIGHT COLUMN: PREVIEW FRAME ============ -->
+
+  <!-- Glass card -->
+  <rect x="470" y="28" width="290" height="164" rx="12" fill="url(#glassFill)" stroke="url(#glassStroke)" stroke-width="1"/>
+
+  <!-- Window chrome -->
+  <circle cx="488" cy="42" r="3" fill="#334155"/>
+  <circle cx="500" cy="42" r="3" fill="#334155"/>
+  <circle cx="512" cy="42" r="3" fill="#334155"/>
+  <rect x="560" y="36" width="110" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.06"/>
+  <line x1="470" y1="56" x2="760" y2="56" stroke="#FFFFFF" stroke-opacity="0.08"/>
+
+  <!-- Skeleton UI lines (left / right, mirrored) -->
+  <g fill="#CBD5E1" fill-opacity="0.09">
+    <rect x="488" y="72" width="46" height="5" rx="2.5"/>
+    <rect x="488" y="84" width="34" height="5" rx="2.5"/>
+    <rect x="488" y="96" width="40" height="5" rx="2.5"/>
+    <rect x="696" y="72" width="46" height="5" rx="2.5"/>
+    <rect x="708" y="84" width="34" height="5" rx="2.5"/>
+    <rect x="702" y="96" width="40" height="5" rx="2.5"/>
+  </g>
+
+  <!-- Player progress bar -->
+  <rect x="488" y="176" width="254" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.10"/>
+  <rect x="488" y="176" width="118" height="3" rx="1.5" fill="url(#progressFill)"/>
+  <circle cx="606" cy="177.5" r="4.5" fill="#F8FAFC"/>
+
+  <!-- Play button glow + rings -->
+  <circle cx="615" cy="114" r="60" fill="url(#glowRed)"/>
+  <circle cx="615" cy="114" r="46" fill="none" stroke="#FF0000" stroke-opacity="0.22" stroke-width="1"/>
+  <circle cx="615" cy="114" r="46" fill="none" stroke="#FF0000" stroke-opacity="0.45" stroke-width="1.5">
+    <animate attributeName="r" values="46;54" dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" values="0.45;0" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- YouTube-style play button -->
+  <rect x="583" y="92" width="64" height="44" rx="12" fill="#FF0000"/>
+  <path d="M608 103.5 L608 124.5 L626 114 Z" fill="#FFFFFF"/>
+
+  <!-- Frame border (on top) -->
+  <rect x="0.5" y="0.5" width="799" height="219" rx="14" fill="none" stroke="#1E293B" stroke-width="1"/>
+</svg>
