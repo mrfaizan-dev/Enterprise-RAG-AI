@@ -2,6 +2,18 @@
 
 <img src="./hero-banner.gif" alt="Enterprise RAG AI — Hybrid Retrieval and Document Intelligence" width="100%">
 
+<h2 align="center">Live Product Walkthrough & Demo</h2>
+
+<p align="center">
+  <b>Watch the end-to-end execution and hybrid retrieval workflow of Enterprise-RAG-AI in action.</b>
+</p>
+
+<p align="center">
+  <a href="https://www.youtube.com/shorts/23A3a6luLJ8" target="_blank">
+    <img src="./ragiai.svg" alt="Enterprise-RAG-AI Live Demo" width="100%">
+  </a>
+</p>
+
 # Enterprise RAG AI
 
 **Hybrid Retrieval & Document Intelligence Platform**
