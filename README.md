@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/shorts/23A3a6luLJ8" target="_blank">
+  <a href="https://youtube.com/shorts/23A3a6luLJ8?feature=share" target="_blank">
     <img src="./ragiai.svg" alt="Enterprise-RAG-AI Live Demo" width="100%">
   </a>
 </p>
